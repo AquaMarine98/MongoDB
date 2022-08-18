@@ -20,7 +20,7 @@ router.get('/', function(req, res) {
         })
 })
 router.post('/', upload.single('file'), function(req, res) {
-    controller.addMessage(req.body.chat, req.body.user, req.body.message, req.file)
+    controller.addMessage(req.body.chat, req.body.user, req.body.message, req.file || null)
         .then((info) => {
             response.success(req, res, info, 201);
         })
